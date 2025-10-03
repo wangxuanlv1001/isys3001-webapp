@@ -1,0 +1,108 @@
+/* === 全局美化与主题色 === */
+:root {
+    --primary-color: #007bff;       /* 主题色 - 蓝色 */
+    --primary-color-dark: #0056b3;  /* 主题色的深色版，用于悬停 */
+    --text-color: #333;             /* 主要文字颜色 */
+    --background-color: #f8f9fa;   /* 更柔和的页面背景色 */
+    --nav-background: #ffffff;      /* 导航栏背景色 */
+    --border-color: #dee2e6;        /* 边框颜色 */
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 使用更现代的字体栈 */
+    background-color: var(--background-color);
+}
+
+/* === 导航栏容器 === */
+header {
+    background-color: var(--nav-background);
+    padding: 1rem 2.5rem; /* 增加了左右内边距，让它更舒展 */
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* 让导航栏固定在页面顶部，滚动时也不会消失 */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* 确保它在最上层 */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === Logo/标题样式 === */
+nav h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    cursor: pointer; /* 鼠标放上去时显示为手型，暗示可以点击 */
+}
+
+/* === 导航链接列表 === */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* 垂直居中，确保按钮和链接对齐 */
+}
+
+nav li {
+    margin-left: 2.5rem; /* 增加链接间的距离 */
+}
+
+/* === 普通链接的悬停效果 (下划线划入) === */
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding-bottom: 5px; /* 为下划线留出空间 */
+    position: relative; /* 实现下划线动画 */
+}
+
+/* 使用 ::after 伪元素创建一个看不见的下划线 */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0); /* 默认状态下，下划线宽度为0，即隐藏 */
+    transform-origin: left; /* 设置动画从左边开始 */
+    transition: transform 0.3s ease-in-out; /* 定义动画效果 */
+}
+
+/* 鼠标悬停时，将下划线宽度变为100%，实现划入效果 */
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* === "登录"按钮的特殊样式 === */
+
+nav a.cta-button::after {
+    display: none;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.5rem 1rem; /* 按钮的内边距 */
+    border-radius: 5px; /* 圆角 */
+    transition: all 0.3s ease; /* 让所有变化都带上动画 */
+}
+
+/* 登录按钮的悬停效果 */
+.cta-button:hover {
+    background-color: var(--primary-color-dark);
+    color: #ffffff; /* 确保悬停时文字颜色不变 */
+    transform: translateY(-2px); /* 鼠标放上去时，按钮向上移动一点点 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 同时增加一点阴影 */
+}
