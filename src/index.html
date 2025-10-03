@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My To-Do App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISYS3001 Todo App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>My To-Do App</h1>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#" class="cta-button">Login</a></li> <!-- 这是新增的登录按钮 -->
-            </ul>
-        </nav>
-    </header>
+
+    <div class="container">
+        <h1>My Todo List</h1>
+        <div class="input-area">
+            <input type="text" id="todo-input" placeholder="Add a new task...">
+            <button id="add-button">Add</button>
+        </div>
+        <ul id="todo-list">
+            <!-- Todo items will be added here by JavaScript -->
+        </ul>
+    </div>
+
+    <!-- 引用 JavaScript 文件 -->
+    <script src="app.js"></script>
 </body>
 </html>
